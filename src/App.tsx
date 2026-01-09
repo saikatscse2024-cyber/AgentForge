@@ -451,7 +451,7 @@ const App = () => {
       {/* Footer */}
       <footer className="relative z-10 px-6 py-12 border-t border-white/10 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto text-center text-gray-400">
-          <p>&copy; 2024 AgentForge. Built with ❤️ for automation enthusiasts.</p>
+          <p>&copy; 2026 AgentForge. Built with ❤️ for automation enthusiasts.</p>
         </div>
       </footer>
 
