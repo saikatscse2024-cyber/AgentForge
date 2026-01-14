@@ -7,13 +7,14 @@ import { Templates } from './pages/Templates';
 import { Profile } from './pages/Profile';
 import { NLAgentCreator } from './pages/NLAgentCreator';
 import { TemplatePage } from './pages/TemplatePage';
+import { SignIn } from './pages/SignIn';
 import { WebsiteBuilder } from './pages/WebsiteBuilder';
 import { AgentWizard } from './components/wizard/AgentWizard';
 import { GuideBot } from './components/common/GuideBot';
 import { HeroPreview } from './components/common/HeroPreview';
 import { Onboarding } from './components/common/Onboarding';
 
-type Page = 'home' | 'dashboard' | 'builder' | 'templates' | 'profile' | 'nl-creator' | 'template-view' | 'website-builder';
+type Page = 'home' | 'dashboard' | 'builder' | 'templates' | 'profile' | 'nl-creator' | 'template-view' | 'website-builder' | 'signin';
 
 const AppContent = () => {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -41,6 +42,9 @@ const AppContent = () => {
       setCurrentPage('templates');
     } else if (location.pathname === '/website-builder') {
       setCurrentPage('website-builder');
+    }
+    else if (location.pathname === '/signin'){
+      setCurrentPage('signin');
     }
   }, [location.pathname]);
 
@@ -158,6 +162,18 @@ const AppContent = () => {
     return (
       <>
         <TemplatePage templateId={activeTemplateId} onBack={handleTemplateBack} />
+        <GuideBot />
+      </>
+    );
+  }
+
+  if (currentPage === 'signin') {
+    return (
+      <>
+        <SignIn onBack={() => {
+          setCurrentPage('home');
+          navigate('/');
+        }} />
         <GuideBot />
       </>
     );
