@@ -78,8 +78,3 @@ npm install
 npm run dev
 ```
 
-<div align="center">
-  <br />
-  <img src="https://forthebadge.com/images/featured/featured-built-with-love.svg" alt="Built with Love">
-  <img src="https://forthebadge.com/images/featured/featured-opensource-it-and-good-luck.svg" alt="Open Source">
-</div>
