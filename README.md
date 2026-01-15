@@ -59,8 +59,8 @@ A specialized team merging hardware-level efficiency with modern AI.
 
 <div align="center"> <table> 
 <tr> <td align="center"> <a href="https://github.com/saikatsardar01"> <img src="https://avatars.githubusercontent.com/u/153124279?v=4" width="100px;" alt="Saikat Sardar"/><br /> <sub><b>Saikat Sardar</b></sub> </a><br /> 👑 Lead Developer </td> 
-<td align="center"> <a href="https://github.com/RaunakDas10"> <img src="https://avatars.githubusercontent.com/u/186401854?v=4" width="100px;" alt="Member 2"/><br /> <sub><b>Raunak Das</b></a></sub><br /> 🚀 Leader </td> <td align="center"> <a href="https://github.com/utsa06"> <img src="https://avatars.githubusercontent.com/u/180530995?v=4" width="100px;" alt="Member 3"/><br /> <sub><b>Utsa Paul</b></sub><br /> 🧠 Auth Specialist <td> 
-<td align="center"> <a href="https://github.com/tiyashabaul"> <img src="https://storage.googleapis.com/vision-hack2skill-production/innovator/USER01225211/1766154122876-DisplayPicture.webp" width="100px;" alt="Member 4"/><br /> <sub><b>Tiyasha Baul</b></sub><br /> ⚙️ Designer </td> </tr> 
+<td align="center"> <a href="https://github.com/RaunakDas10"> <img src="https://avatars.githubusercontent.com/u/186401854?v=4" width="100px;" alt="Member 2"/><br /> <sub><b>Raunak Das</b></a></sub><br /> 🚀 Leader </td> <td align="center"> <a href="https://github.com/utsa06"> <img src="https://avatars.githubusercontent.com/u/180530995?v=4" width="100px;" alt="Member 3"/><br /> <sub><b>Utsa Paul</b></a></sub><br /> 🧠 Auth Specialist <td> 
+<td align="center"> <a href="https://github.com/tiyashabaul"> <img src="https://storage.googleapis.com/vision-hack2skill-production/innovator/USER01225211/1766154122876-DisplayPicture.webp" width="100px;" alt="Member 4"/><br /> <sub><b>Tiyasha Baul</b></a></sub><br /> ⚙️ Designer </td> </tr> 
 </table> </div>
 
 🛠️ Installation
