@@ -170,10 +170,7 @@ const AppContent = () => {
   if (currentPage === 'signin') {
     return (
       <>
-        <SignIn onBack={() => {
-          setCurrentPage('home');
-          navigate('/');
-        }} />
+        <SignIn onSignIn={() => setCurrentPage('dashboard')} onSwitchToSignUp={() => setCurrentPage('home')} />
         <GuideBot />
       </>
     );

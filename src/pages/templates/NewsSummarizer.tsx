@@ -142,7 +142,7 @@
 // - Saikat
 
 import React, { useState } from 'react';
-import { ArrowLeft, Play, Loader2, ExternalLink, Cpu, Briefcase, Trophy, FlaskConical, Sparkles, Image as ImageIcon, Zap, Utensils } from 'lucide-react';
+import { ArrowLeft, Loader2, ExternalLink, Cpu, Briefcase, Trophy, FlaskConical, Image as ImageIcon, Zap, Utensils } from 'lucide-react';
 import { ThinkingTerminal, type LogStep } from '../../components/agent/ThinkingTerminal';
 
 interface NewsItem {

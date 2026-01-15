@@ -1,4 +1,3 @@
-import React from "react";
 import "../lib/login.css";
 import { signInWithGooglePopup } from "../lib/firebase";
 
