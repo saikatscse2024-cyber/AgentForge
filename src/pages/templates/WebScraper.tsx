@@ -171,8 +171,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import {
     ArrowLeft, ShieldCheck, ShieldAlert, Globe, Loader2,
-    Search, Shield, Lock, MapPin, Server, Zap, ExternalLink,
-    AlertTriangle, History, Info
+    Search, Shield, Lock, MapPin, Server,  ExternalLink,
 } from 'lucide-react';
 import { ThinkingTerminal, type LogStep } from '../../components/agent/ThinkingTerminal';
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowLeft, Play, Code, Download, Laptop, Loader2, Sparkles, Layout } from 'lucide-react';
+import { ArrowLeft, Code, Download, Laptop, Loader2, Sparkles, Layout } from 'lucide-react';
 import { ThinkingTerminal, type LogStep } from '../components/agent/ThinkingTerminal';
 import { agentService } from '../services/webAgent';
 

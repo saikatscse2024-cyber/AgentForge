@@ -1,14 +1,14 @@
 import axios from 'axios';
-import { GoogleGenerativeAI } from "@google/generative-ai";
+// import { GoogleGenerativeAI } from "@google/generative-ai";
 
 // Configuration
-const GEN_AI_KEY = import.meta.env.VITE_GEMINI_API_KEY;
+// const GEN_AI_KEY = import.meta.env.VITE_GEMINI_API_KEY;
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api/v1';
 const USE_MOCK = import.meta.env.VITE_USE_MOCK === 'true';
 
 // Types
 
-const genAI = GEN_AI_KEY ? new GoogleGenerativeAI(GEN_AI_KEY) : null;
+// const genAI = GEN_AI_KEY ? new GoogleGenerativeAI(GEN_AI_KEY) : null;
 
 export interface Agent {
   id?: string;

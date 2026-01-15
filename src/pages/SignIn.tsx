@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Sparkles, Mail, Lock, ArrowRight } from 'lucide-react';
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { GoogleAuthProvider } from "firebase/auth";
 import SignInModal from "./signInModel"
 interface SignInProps {
   onSignIn: () => void;
