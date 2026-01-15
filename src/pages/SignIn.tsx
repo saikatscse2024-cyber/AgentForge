@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Sparkles, Mail, Lock, ArrowRight } from 'lucide-react';
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 interface SignInProps {
   onSignIn: () => void;
@@ -9,6 +10,11 @@ interface SignInProps {
 export const SignIn: React.FC<SignInProps> = ({ onSignIn, onSwitchToSignUp }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const provider = new GoogleAuthProvider();
+  provider.setCustomParameters({
+  prompt: "select_account",
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
