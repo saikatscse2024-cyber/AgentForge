@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
+    "@react-native-google-signin/google-signin": "^16.1.1",
     "@xyflow/react": "^12.10.0",
     "axios": "^1.13.2",
     "firebase": "^12.8.0",

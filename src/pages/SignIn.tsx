@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Sparkles, Mail, Lock, ArrowRight } from 'lucide-react';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-
+import SignInModal from "./signInModel"
 interface SignInProps {
   onSignIn: () => void;
   onSwitchToSignUp: () => void;
@@ -15,10 +15,8 @@ export const SignIn: React.FC<SignInProps> = ({ onSignIn, onSwitchToSignUp }) =>
   provider.setCustomParameters({
   prompt: "select_account",
   });
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Connect to backend
     alert('Sign in will work once backend is connected!');
     onSignIn();
   };
@@ -80,6 +78,8 @@ export const SignIn: React.FC<SignInProps> = ({ onSignIn, onSwitchToSignUp }) =>
               Sign In
               <ArrowRight className="w-5 h-5" />
             </button>
+
+            <SignInModal/>
           </form>
 
           <div className="mt-6 text-center">

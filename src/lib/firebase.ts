@@ -1,31 +1,25 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
-import {getAuth} from "firebase/auth";
+import {getAuth, signInWithPopup, GoogleAuthProvider} from "firebase/auth";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDade0xBOGdh-ty13YT2cD7tCi5T7uo1mY",
-  authDomain: "agentforge-75916.firebaseapp.com",
-  projectId: "agentforge-75916",
-  storageBucket: "agentforge-75916.firebasestorage.app",
-  messagingSenderId: "491817117036",
-  appId: "1:491817117036:web:d8e1fcddc7f6b7f3a53f49"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
-// sign in using a redirect
 const provider = new GoogleAuthProvider();
 provider.setCustomParameters({
   prompt: "select_account", 
 });
-
-// never need more than one authentication
+export const auth = getAuth();
 export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
-// Export auth (we will use this everywhere)
-export const auth = getAuth(app);
 
 export default app;
