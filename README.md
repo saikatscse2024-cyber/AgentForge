@@ -52,6 +52,7 @@ VITE_FIREBASE_PROJECT_ID="secret-75916"
 VITE_FIREBASE_STORAGE_BUCKET="secret.firebasestorage.app"
 VITE_FIREBASE_MESSAGING_SENDER_ID="integer"
 VITE_FIREBASE_APP_ID="secret:d8e1fcddc7f6b7f3a53f49"
+```
 
 👥 Meet the Architects: 4-Bit Coders
 A specialized team merging hardware-level efficiency with modern AI.
