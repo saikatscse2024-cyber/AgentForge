@@ -26,43 +26,29 @@ export interface Template {
 
 export const templates: Template[] = [
 
-  {
-    id: 'email-assistant',
-    name: 'Email Assistant',
-    description: 'Auto-categorize and respond to emails with AI-powered replies',
-    category: 'Communication',
-    icon: Mail,
-    color: 'bg-gradient-to-br from-blue-500 to-indigo-600',
+    {
+    id: 'alert-system',
+    name: 'ALERT KERNEL',
+    description: 'Monitor conditions and send instant notifications',
+    category: 'Monitoring',
+    icon: Zap,
+    color: 'bg-gradient-to-br from-amber-500 to-orange-600',
     nodes: 5,
-    apiEndpoint: '/api/agents/email-assistant/run',
+    apiEndpoint: '/api/agents/alert/run',
     inputs: [
       {
-        id: 'email_provider',
-        label: 'Email Provider',
-        type: 'select',
-        options: [
-          { label: 'Gmail', value: 'gmail' },
-          { label: 'Outlook', value: 'outlook' }
-        ],
+        id: 'condition',
+        label: 'Alert Condition',
+        type: 'textarea',
+        placeholder: 'If stock price > 150',
         required: true
-      },
-      {
-        id: 'response_style',
-        label: 'Response Style',
-        type: 'select',
-        options: [
-          { label: 'Professional', value: 'professional' },
-          { label: 'Friendly', value: 'friendly' },
-          { label: 'Concise', value: 'concise' }
-        ],
-        defaultValue: 'professional'
       }
     ]
   },
   {
     id: 'meeting-scheduler',
-    name: 'Meeting Scheduler',
-    description: 'Automatically schedule meetings based on calendar availability',
+    name: 'Event Forge',
+    description: 'Automatically schedule meetings in few clicks',
     category: 'Productivity',
     icon: Calendar,
     color: 'bg-gradient-to-br from-green-500 to-emerald-600',
@@ -80,8 +66,8 @@ export const templates: Template[] = [
   },
   {
     id: 'web-scraper',
-    name: 'Web Data Scraper',
-    description: 'Extract data from websites and save to spreadsheet',
+    name: 'LinkGuard',
+    description: 'Extract data from websites URL and protect yourself from any mishap',
     category: 'Data Collection',
     icon: Globe,
     color: 'bg-gradient-to-br from-purple-500 to-pink-600',
@@ -106,7 +92,7 @@ export const templates: Template[] = [
   },
   {
     id: 'news-summarizer',
-    name: 'News Summarizer',
+    name: 'NewsChef',
     description: 'Daily news digest with AI-powered summaries',
     category: 'Content',
     icon: FileText,
@@ -185,25 +171,41 @@ export const templates: Template[] = [
       }
     ]
   },
-  {
-    id: 'alert-system',
-    name: 'Alert System',
-    description: 'Monitor conditions and send instant notifications',
-    category: 'Monitoring',
-    icon: Zap,
-    color: 'bg-gradient-to-br from-amber-500 to-orange-600',
+
+    {
+    id: 'email-assistant',
+    name: 'Email Assistant',
+    description: 'Auto-categorize and respond to emails with AI-powered replies',
+    category: 'Communication',
+    icon: Mail,
+    color: 'bg-gradient-to-br from-blue-500 to-indigo-600',
     nodes: 5,
-    apiEndpoint: '/api/agents/alert/run',
+    apiEndpoint: '/api/agents/email-assistant/run',
     inputs: [
       {
-        id: 'condition',
-        label: 'Alert Condition',
-        type: 'textarea',
-        placeholder: 'If stock price > 150',
+        id: 'email_provider',
+        label: 'Email Provider',
+        type: 'select',
+        options: [
+          { label: 'Gmail', value: 'gmail' },
+          { label: 'Outlook', value: 'outlook' }
+        ],
         required: true
+      },
+      {
+        id: 'response_style',
+        label: 'Response Style',
+        type: 'select',
+        options: [
+          { label: 'Professional', value: 'professional' },
+          { label: 'Friendly', value: 'friendly' },
+          { label: 'Concise', value: 'concise' }
+        ],
+        defaultValue: 'professional'
       }
     ]
   },
+
 ];
 
 export const getTemplateById = (id: string): Template | undefined => {
