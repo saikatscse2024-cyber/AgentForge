@@ -14,7 +14,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({ isOpen, onComplete, onSk
 
   const steps = [
     {
-      title: "Welcome to AgentForge! 🎉",
+      title: "Welcome to AgentWeaver! 🎉",
       description: "You're about to discover the easiest way to build AI agents. Let's get you started!",
       image: <Sparkles className="w-24 h-24 text-purple-400 animate-pulse" />,
     },
@@ -90,9 +90,8 @@ export const Onboarding: React.FC<OnboardingProps> = ({ isOpen, onComplete, onSk
               {steps.map((_, i) => (
                 <div
                   key={i}
-                  className={`h-2 rounded-full transition-all ${
-                    i + 1 === step ? 'w-8 bg-purple-500' : 'w-2 bg-gray-600'
-                  }`}
+                  className={`h-2 rounded-full transition-all ${i + 1 === step ? 'w-8 bg-purple-500' : 'w-2 bg-gray-600'
+                    }`}
                 />
               ))}
             </div>

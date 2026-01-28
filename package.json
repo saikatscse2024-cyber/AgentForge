@@ -12,10 +12,12 @@
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
     "@react-native-google-signin/google-signin": "^16.1.1",
+    "@types/papaparse": "^5.5.2",
     "@xyflow/react": "^12.10.0",
     "axios": "^1.13.2",
     "firebase": "^12.8.0",
     "lucide-react": "^0.562.0",
+    "papaparse": "^5.5.3",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.12.0",

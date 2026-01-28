@@ -159,6 +159,34 @@ const RealAgentService = {
   },
 
   execute: async (id: string) => {
+    // Intercept default agents for client-side demo
+    if (id === 'default_event_forge') {
+      await new Promise(r => setTimeout(r, 1500));
+      return {
+        status: 'completed',
+        logs: [
+          { timestamp: new Date().toISOString(), level: 'info', message: 'Starting EventForge scheduler...' },
+          { timestamp: new Date().toISOString(), level: 'info', message: 'Connecting to Calendar API...' },
+          { timestamp: new Date().toISOString(), level: 'success', message: 'Found 3 available slots.' },
+          { timestamp: new Date().toISOString(), level: 'success', message: 'Meeting scheduled successfully.' }
+        ],
+        results: []
+      };
+    }
+    if (id === 'default_alert_kernel') {
+      await new Promise(r => setTimeout(r, 1500));
+      return {
+        status: 'completed',
+        logs: [
+          { timestamp: new Date().toISOString(), level: 'info', message: 'Initializing ALERT KERNEL...' },
+          { timestamp: new Date().toISOString(), level: 'info', message: 'Monitoring system metrics...' },
+          { timestamp: new Date().toISOString(), level: 'warning', message: 'Threshold exceeded: CPU > 80%' },
+          { timestamp: new Date().toISOString(), level: 'success', message: 'Alert notification sent.' }
+        ],
+        results: []
+      };
+    }
+
     const response = await axios.post(`${API_URL}/agents/${id}/execute`);
     return response.data;
   },

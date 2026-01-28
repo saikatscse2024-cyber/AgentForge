@@ -163,7 +163,7 @@ export const AlertSystem: React.FC<AlertSystemProps> = ({ onBack }) => {
     const [seconds, setSeconds] = useState('10');
     const [loading, setLoading] = useState(false);
     const [activeTimers, setActiveTimers] = useState<ActiveTimer[]>([]);
-    const [showPopup, setShowPopup] = useState<{show: boolean, text: string}>({show: false, text: ''});
+    const [showPopup, setShowPopup] = useState<{ show: boolean, text: string }>({ show: false, text: '' });
     const [logs, setLogs] = useState<LogStep[]>([]);
 
     // Countdown Logic: Runs every second to update the UI
@@ -171,12 +171,12 @@ export const AlertSystem: React.FC<AlertSystemProps> = ({ onBack }) => {
         const interval = setInterval(() => {
             setActiveTimers(prev => prev.map(timer => {
                 const remaining = Math.max(0, Math.floor((timer.targetTime - Date.now()) / 1000));
-                
+
                 // Trigger completion when hits zero
                 if (remaining === 0 && timer.timeLeft > 0) {
                     handleTimerComplete(timer.text);
                 }
-                
+
                 return { ...timer, timeLeft: remaining };
             }).filter(t => t.timeLeft > 0 || Date.now() - t.targetTime < 2000)); // Keep visible for 2s after completion
         }, 1000);
@@ -187,11 +187,11 @@ export const AlertSystem: React.FC<AlertSystemProps> = ({ onBack }) => {
     const handleTimerComplete = (text: string) => {
         // Trigger Sound
         const audio = new Audio('https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3');
-        audio.play().catch(() => {});
-        
+        audio.play().catch(() => { });
+
         // Trigger System Notification
         if (Notification.permission === "granted") {
-            new Notification("AgentForge Alert!", { body: text });
+            new Notification("AgentWeaver Alert!", { body: text });
         }
 
         // Show UI Popup
@@ -222,7 +222,7 @@ export const AlertSystem: React.FC<AlertSystemProps> = ({ onBack }) => {
 
         setActiveTimers(prev => [...prev, newTimer]);
         addLog(`Agent watching clock. Target T-minus ${minutes}m ${seconds}s`, 'success');
-        
+
         setLoading(false);
         setCondition('');
     };
@@ -238,8 +238,8 @@ export const AlertSystem: React.FC<AlertSystemProps> = ({ onBack }) => {
                         </div>
                         <h2 className="text-2xl font-bold mb-2">Alert Triggered!</h2>
                         <p className="text-slate-400 mb-8">{showPopup.text}</p>
-                        <button 
-                            onClick={() => setShowPopup({show: false, text: ''})}
+                        <button
+                            onClick={() => setShowPopup({ show: false, text: '' })}
                             className="w-full py-3 bg-orange-600 rounded-xl font-bold hover:bg-orange-500 transition-colors"
                         >
                             Acknowledge
@@ -263,7 +263,7 @@ export const AlertSystem: React.FC<AlertSystemProps> = ({ onBack }) => {
 
             <div className="max-w-5xl mx-auto px-6 py-12">
                 <div className="grid lg:grid-cols-3 gap-8">
-                    
+
                     {/* Setup Panel */}
                     <div className="lg:col-span-2 space-y-6">
                         <div className="bg-slate-900/40 border border-white/10 rounded-3xl p-6 sm:p-8 backdrop-blur-md">
@@ -323,7 +323,7 @@ export const AlertSystem: React.FC<AlertSystemProps> = ({ onBack }) => {
                     <div className="space-y-4">
                         <div className="bg-slate-900/40 border border-white/5 rounded-3xl p-6">
                             <h3 className="text-xs font-bold text-slate-500 mb-4 tracking-widest uppercase">Live Countdowns</h3>
-                            
+
                             <div className="space-y-3">
                                 {activeTimers.length === 0 ? (
                                     <div className="py-10 text-center border border-dashed border-white/10 rounded-2xl text-slate-600 text-sm">

@@ -15,7 +15,28 @@ interface AgentState {
 }
 
 export const useAgentStore = create<AgentState>((set, get) => ({
-  agents: [],
+  agents: [
+    {
+      id: 'default_event_forge',
+      name: 'EventForge',
+      description: 'Automatically schedule meetings based on calendar availability.',
+      nodes: [],
+      edges: [],
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      status: 'active'
+    },
+    {
+      id: 'default_alert_kernel',
+      name: 'ALERT KERNEL',
+      description: 'Monitor conditions and send instant notifications.',
+      nodes: [],
+      edges: [],
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      status: 'active'
+    }
+  ],
   currentAgent: null,
   loading: false,
 

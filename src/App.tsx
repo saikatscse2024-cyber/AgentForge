@@ -43,7 +43,7 @@ const AppContent = () => {
     } else if (location.pathname === '/website-builder') {
       setCurrentPage('website-builder');
     }
-    else if (location.pathname === '/signin'){
+    else if (location.pathname === '/signin') {
       setCurrentPage('signin');
     }
   }, [location.pathname]);
@@ -261,7 +261,7 @@ const AppContent = () => {
               <Sparkles className="w-6 h-6" />
             </div>
             <span className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-              AgentForge
+              AgentWeaver
             </span>
           </div>
 
@@ -505,7 +505,7 @@ const AppContent = () => {
               Ready to Transform Your Workflow?
             </h2>
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-              Join thousands of users building intelligent automation with AgentForge
+              Join thousands of users building intelligent automation with AgentWeaver
             </p>
             <div className="flex gap-4 justify-center">
               <button
@@ -530,7 +530,7 @@ const AppContent = () => {
       {/* Footer */}
       <footer className="relative z-10 px-6 py-12 border-t border-white/10 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto text-center text-gray-400">
-          <p>&copy; 2026 AgentForge. Built with ❤️ for automation enthusiasts.</p>
+          <p>&copy; 2026 AgentWeaver. Built with ❤️ for automation enthusiasts.</p>
         </div>
       </footer>
 

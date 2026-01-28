@@ -8,6 +8,10 @@ import { YouTubeAnalyzer } from './templates/YouTubeAnalyzer';
 import { DataSync } from './templates/DataSync';
 import { SocialMonitor } from './templates/SocialMonitor';
 import { AlertSystem } from './templates/AlertSystem';
+import { MediCare } from './templates/MediCare';
+import { FinancialStress } from './templates/FinancialStress';
+import { MedSageLite } from './templates/MedSageLite';
+import { GrammarX } from './templates/GrammarX';
 
 // Placeholder for templates not yet implemented
 const PlaceholderTemplate: React.FC<{ templateId: string; onBack: () => void }> = ({ templateId, onBack }) => (
@@ -45,6 +49,14 @@ export const TemplatePage: React.FC<TemplatePageProps> = ({ templateId, onBack }
             return <SocialMonitor onBack={onBack} />;
         case 'alert-system':
             return <AlertSystem onBack={onBack} />;
+        case 'medicare':
+            return <MediCare onBack={onBack} />;
+        case 'financial-stress':
+            return <FinancialStress onBack={onBack} />;
+        case 'medsage-lite':
+            return <MedSageLite onBack={onBack} />;
+        case 'grammar-x':
+            return <GrammarX onBack={onBack} />;
         // Add more cases here as we implement them
         default:
             // Fallback for unimplemented templates

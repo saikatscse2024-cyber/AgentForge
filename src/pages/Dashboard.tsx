@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Plus, Sparkles, Zap } from 'lucide-react';
 import { AgentCard } from '../components/dashboard/AgentCard';
 import { useAgentStore } from '../store/agentStore';
@@ -12,6 +13,7 @@ interface DashboardProps {
 }
 
 export const Dashboard: React.FC<DashboardProps> = ({ onCreateNew, onCreateWithAI, onEditAgent }) => {
+  const navigate = useNavigate();
   const { agents, loadAgents, deleteAgent } = useAgentStore();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_executingAgents, setExecutingAgents] = useState<Set<string>>(new Set());
@@ -134,9 +136,25 @@ export const Dashboard: React.FC<DashboardProps> = ({ onCreateNew, onCreateWithA
                 <AgentCard
                   key={agent.id}
                   agent={agent}
-                  onEdit={() => onEditAgent(agent.id)}
+                  onEdit={() => {
+                    if (agent.id === 'default_event_forge') {
+                      navigate('/templates/meeting-scheduler'); // Redirect to template
+                    } else if (agent.id === 'default_alert_kernel') {
+                      navigate('/templates/alert-system'); // Redirect to template
+                    } else {
+                      onEditAgent(agent.id);
+                    }
+                  }}
                   onDelete={() => handleDelete(agent.id)}
-                  onRun={() => handleRun(agent.id, agent.name)}
+                  onRun={() => {
+                    if (agent.id === 'default_event_forge') {
+                      navigate('/templates/meeting-scheduler');
+                    } else if (agent.id === 'default_alert_kernel') {
+                      navigate('/templates/alert-system');
+                    } else {
+                      handleRun(agent.id, agent.name);
+                    }
+                  }}
                   onViewResults={() => setViewingExecution({ agentId: agent.id, agentName: agent.name })}
                 />
               ))}

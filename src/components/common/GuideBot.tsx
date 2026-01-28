@@ -88,9 +88,9 @@
 
 
 import React, { useState, useEffect, useRef } from 'react';
-import { 
-  HelpCircle, X, Sparkles, Send, 
-  ChevronDown, ChevronUp, Lightbulb, Loader2 
+import {
+  HelpCircle, X, Sparkles, Send,
+  ChevronDown, ChevronUp, Lightbulb, Loader2
 } from 'lucide-react';
 import { botService } from '../../services/bot'; // Path to your bot service
 
@@ -108,7 +108,7 @@ export const GuideBot: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([
     { id: '1', text: "Hi! I'm your GuideBot. How can I help you build today?", sender: 'bot' }
   ]);
-  
+
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const quickTips = [
@@ -165,36 +165,35 @@ export const GuideBot: React.FC = () => {
       {/* Main Chat Window */}
       {isOpen && (
         <div className="fixed bottom-24 right-6 z-50 w-[calc(100vw-3rem)] sm:w-96 max-h-[70vh] bg-[#0B0F1A] rounded-3xl border border-white/10 shadow-2xl flex flex-col overflow-hidden animate-in slide-in-from-bottom-4">
-          
+
           {/* Header (Fixed height) */}
           <div className="flex-none p-4 bg-white/5 border-b border-white/10 flex items-center gap-3">
             <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center rotate-3">
               <Sparkles className="w-5 h-5 text-white" />
             </div>
             <div>
-              <h3 className="font-bold text-white text-sm">AgentForge Guide</h3>
+              <h3 className="font-bold text-white text-sm">AgentWeaver Guide</h3>
               <p className="text-[10px] text-blue-400 font-bold uppercase tracking-widest">AI Online</p>
             </div>
           </div>
 
           {/* Chat Messages Area (Scrollable & Responsive) */}
-          <div 
-            ref={scrollRef} 
+          <div
+            ref={scrollRef}
             className="flex-1 overflow-y-auto p-4 space-y-4 bg-black/20 scroll-smooth custom-scrollbar"
             style={{ scrollbarWidth: 'thin', scrollbarColor: '#333 transparent' }}
           >
             {messages.map((msg) => (
               <div key={msg.id} className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
-                <div className={`max-w-[85%] px-4 py-2.5 rounded-2xl text-[13px] leading-relaxed break-words whitespace-pre-wrap ${
-                  msg.sender === 'user' 
-                    ? 'bg-purple-600 text-white rounded-tr-none shadow-lg' 
+                <div className={`max-w-[85%] px-4 py-2.5 rounded-2xl text-[13px] leading-relaxed break-words whitespace-pre-wrap ${msg.sender === 'user'
+                    ? 'bg-purple-600 text-white rounded-tr-none shadow-lg'
                     : 'bg-white/5 text-slate-300 border border-white/10 rounded-tl-none'
-                }`}>
+                  }`}>
                   {msg.text}
                 </div>
               </div>
             ))}
-            
+
             {isTyping && (
               <div className="flex items-center gap-2 text-slate-500 text-[11px] ml-2">
                 <Loader2 className="w-3 h-3 animate-spin text-blue-500" />
@@ -205,7 +204,7 @@ export const GuideBot: React.FC = () => {
 
           {/* Suggestions Drawer (Fixed height when open) */}
           <div className="flex-none px-4 pb-2 bg-black/20">
-            <button 
+            <button
               onClick={() => setShowSuggestions(!showSuggestions)}
               className="flex items-center justify-between w-full p-2 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-all"
             >
@@ -244,7 +243,7 @@ export const GuideBot: React.FC = () => {
               placeholder="Type your question..."
               className="flex-1 bg-black/60 border border-white/10 rounded-xl px-4 py-2 text-xs text-white focus:outline-none focus:border-blue-500 transition-all"
             />
-            <button 
+            <button
               type="submit"
               disabled={isTyping || !input.trim()}
               className="bg-blue-600 p-2.5 rounded-xl hover:bg-blue-500 transition-colors disabled:opacity-50"

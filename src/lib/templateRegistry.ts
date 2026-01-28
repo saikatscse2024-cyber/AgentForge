@@ -1,4 +1,4 @@
-import { Mail, Calendar, Globe, Database, Video, Zap, FileText, TrendingUp } from 'lucide-react';
+import { Mail, Calendar, Globe, Database, Video, Zap, FileText, TrendingUp, Activity, Edit3 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 export interface TemplateInput {
@@ -26,7 +26,50 @@ export interface Template {
 
 export const templates: Template[] = [
 
-    {
+  {
+    id: 'meeting-scheduler',
+    name: 'EventForge',
+    description: 'Automatically schedule meetings based on calendar availability',
+    category: 'Productivity',
+    icon: Calendar,
+    color: 'bg-gradient-to-br from-green-500 to-emerald-600',
+    nodes: 6,
+    apiEndpoint: '/api/agents/scheduler/run',
+    inputs: [
+      {
+        id: 'calendar_url',
+        label: 'Calendar Link',
+        type: 'text',
+        placeholder: 'https://cal.com/username',
+        required: true
+      }
+    ]
+  },
+  {
+    id: 'data-sync',
+    name: 'ReadyMade INVOICE GENERATOR',
+    description: 'Create professional, print-ready invoices with real-time calculations.',
+    category: 'Productivity',
+    icon: Database,
+    color: 'bg-gradient-to-br from-cyan-500 to-blue-600',
+    nodes: 7,
+    apiEndpoint: '/api/agents/sync/run',
+    inputs: [
+      {
+        id: 'source_db',
+        label: 'Source Database',
+        type: 'text',
+        required: true
+      },
+      {
+        id: 'dest_sheet',
+        label: 'Destination Sheet ID',
+        type: 'text',
+        required: true
+      }
+    ]
+  },
+  {
     id: 'alert-system',
     name: 'ALERT KERNEL',
     description: 'Monitor conditions and send instant notifications',
@@ -46,28 +89,58 @@ export const templates: Template[] = [
     ]
   },
   {
-    id: 'meeting-scheduler',
-    name: 'Event Forge',
-    description: 'Automatically schedule meetings in few clicks',
-    category: 'Productivity',
-    icon: Calendar,
-    color: 'bg-gradient-to-br from-green-500 to-emerald-600',
-    nodes: 6,
-    apiEndpoint: '/api/agents/scheduler/run',
+    id: 'financial-stress',
+    name: 'Financial Stress Analyzer',
+    description: 'Analyze financial health and stress levels based on transaction patterns.',
+    category: 'Finance',
+    icon: TrendingUp,
+    color: 'bg-gradient-to-br from-rose-500 to-orange-600',
+    nodes: 8,
+    apiEndpoint: '', // Client-side
     inputs: [
       {
-        id: 'calendar_url',
-        label: 'Calendar Link',
-        type: 'text',
-        placeholder: 'https://cal.com/username',
+        id: 'initial_balance',
+        label: 'Monthly Income',
+        type: 'number',
+        placeholder: 'e.g., 50000',
         required: true
       }
     ]
   },
   {
+    id: 'medicare',
+    name: 'MediCare',
+    description: 'Instant drug information and usage guide from openFDA.',
+    category: 'Health',
+    icon: Zap,
+    color: 'bg-gradient-to-br from-teal-500 to-green-600',
+    nodes: 3,
+    apiEndpoint: '',
+    inputs: [
+      {
+        id: 'medicine_name',
+        label: 'Medicine Name',
+        type: 'text',
+        placeholder: 'e.g., Aspirin',
+        required: true
+      }
+    ]
+  },
+  {
+    id: 'medsage-lite',
+    name: 'MedSage Lite',
+    description: 'Deterministic clinical extraction & risk assessment (No-API)',
+    category: 'Health',
+    icon: Activity,
+    color: 'bg-gradient-to-br from-emerald-500 to-cyan-600',
+    nodes: 8,
+    apiEndpoint: '',
+    inputs: [] // No inputs needed for initial routing as it has its own UI
+  },
+  {
     id: 'web-scraper',
     name: 'LinkGuard',
-    description: 'Extract data from websites URL and protect yourself from any mishap',
+    description: 'Extract data from websites and save to spreadsheet',
     category: 'Data Collection',
     icon: Globe,
     color: 'bg-gradient-to-br from-purple-500 to-pink-600',
@@ -129,30 +202,6 @@ export const templates: Template[] = [
     ]
   },
   {
-    id: 'data-sync',
-    name: 'Data Synchronizer',
-    description: 'Sync data between databases and spreadsheets',
-    category: 'Data Management',
-    icon: Database,
-    color: 'bg-gradient-to-br from-cyan-500 to-blue-600',
-    nodes: 7,
-    apiEndpoint: '/api/agents/sync/run',
-    inputs: [
-      {
-        id: 'source_db',
-        label: 'Source Database',
-        type: 'text',
-        required: true
-      },
-      {
-        id: 'dest_sheet',
-        label: 'Destination Sheet ID',
-        type: 'text',
-        required: true
-      }
-    ]
-  },
-  {
     id: 'social-monitor',
     name: 'Social Media Monitor',
     description: 'Track mentions and sentiment across platforms',
@@ -171,8 +220,7 @@ export const templates: Template[] = [
       }
     ]
   },
-
-    {
+  {
     id: 'email-assistant',
     name: 'Email Assistant',
     description: 'Auto-categorize and respond to emails with AI-powered replies',
@@ -205,7 +253,17 @@ export const templates: Template[] = [
       }
     ]
   },
-
+  {
+    id: 'grammar-x',
+    name: 'GrammarX',
+    description: 'Free improvised grammar and spell checker',
+    category: 'Writing',
+    icon: Edit3,
+    color: 'bg-gradient-to-br from-purple-600 to-indigo-600',
+    nodes: 5,
+    apiEndpoint: '', // Client-side logic usage
+    inputs: []
+  }
 ];
 
 export const getTemplateById = (id: string): Template | undefined => {

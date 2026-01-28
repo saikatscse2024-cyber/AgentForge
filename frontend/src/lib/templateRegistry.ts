@@ -1,4 +1,4 @@
-import { Mail, Calendar, Globe, Database, Video, Zap, FileText, TrendingUp } from 'lucide-react';
+import { Mail, Calendar, Globe, Database, Video, Zap, FileText, TrendingUp, Activity, Edit3 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 export interface TemplateInput {
@@ -27,41 +27,8 @@ export interface Template {
 export const templates: Template[] = [
 
   {
-    id: 'email-assistant',
-    name: 'Email Assistant',
-    description: 'Auto-categorize and respond to emails with AI-powered replies',
-    category: 'Communication',
-    icon: Mail,
-    color: 'bg-gradient-to-br from-blue-500 to-indigo-600',
-    nodes: 5,
-    apiEndpoint: '/api/agents/email-assistant/run',
-    inputs: [
-      {
-        id: 'email_provider',
-        label: 'Email Provider',
-        type: 'select',
-        options: [
-          { label: 'Gmail', value: 'gmail' },
-          { label: 'Outlook', value: 'outlook' }
-        ],
-        required: true
-      },
-      {
-        id: 'response_style',
-        label: 'Response Style',
-        type: 'select',
-        options: [
-          { label: 'Professional', value: 'professional' },
-          { label: 'Friendly', value: 'friendly' },
-          { label: 'Concise', value: 'concise' }
-        ],
-        defaultValue: 'professional'
-      }
-    ]
-  },
-  {
     id: 'meeting-scheduler',
-    name: 'Meeting Scheduler',
+    name: 'EventForge',
     description: 'Automatically schedule meetings based on calendar availability',
     category: 'Productivity',
     icon: Calendar,
@@ -79,8 +46,100 @@ export const templates: Template[] = [
     ]
   },
   {
+    id: 'data-sync',
+    name: 'ReadyMade INVOICE GENERATOR',
+    description: 'Create professional, print-ready invoices with real-time calculations.',
+    category: 'Productivity',
+    icon: Database,
+    color: 'bg-gradient-to-br from-cyan-500 to-blue-600',
+    nodes: 7,
+    apiEndpoint: '/api/agents/sync/run',
+    inputs: [
+      {
+        id: 'source_db',
+        label: 'Source Database',
+        type: 'text',
+        required: true
+      },
+      {
+        id: 'dest_sheet',
+        label: 'Destination Sheet ID',
+        type: 'text',
+        required: true
+      }
+    ]
+  },
+  {
+    id: 'alert-system',
+    name: 'ALERT KERNEL',
+    description: 'Monitor conditions and send instant notifications',
+    category: 'Monitoring',
+    icon: Zap,
+    color: 'bg-gradient-to-br from-amber-500 to-orange-600',
+    nodes: 5,
+    apiEndpoint: '/api/agents/alert/run',
+    inputs: [
+      {
+        id: 'condition',
+        label: 'Alert Condition',
+        type: 'textarea',
+        placeholder: 'If stock price > 150',
+        required: true
+      }
+    ]
+  },
+  {
+    id: 'financial-stress',
+    name: 'Financial Stress Analyzer',
+    description: 'Analyze financial health and stress levels based on transaction patterns.',
+    category: 'Finance',
+    icon: TrendingUp,
+    color: 'bg-gradient-to-br from-rose-500 to-orange-600',
+    nodes: 8,
+    apiEndpoint: '', // Client-side
+    inputs: [
+      {
+        id: 'initial_balance',
+        label: 'Monthly Income',
+        type: 'number',
+        placeholder: 'e.g., 50000',
+        required: true
+      }
+    ]
+  },
+  {
+    id: 'medicare',
+    name: 'MediCare',
+    description: 'Instant drug information and usage guide from openFDA.',
+    category: 'Health',
+    icon: Zap,
+    color: 'bg-gradient-to-br from-teal-500 to-green-600',
+    nodes: 3,
+    apiEndpoint: '',
+    inputs: [
+      {
+        id: 'medicine_name',
+        label: 'Medicine Name',
+        type: 'text',
+        placeholder: 'e.g., Aspirin',
+        required: true
+      }
+    ]
+  },
+  {
+    id: 'medsage-lite',
+    name: 'MedSage Lite',
+    description: 'Deterministic clinical extraction & risk assessment (No-API)',
+    category: 'Health',
+    icon: Activity,
+    color: 'bg-gradient-to-br from-emerald-500 to-cyan-600',
+    nodes: 8,
+    apiEndpoint: '',
+    inputs: [] // No inputs needed for initial routing as it has its own UI
+  },
+  {
     id: 'web-scraper',
-    name: 'Web Data Scraper',
+    name: 'LinkGuard',
     description: 'Extract data from websites and save to spreadsheet',
     category: 'Data Collection',
     icon: Globe,
@@ -106,7 +165,7 @@ export const templates: Template[] = [
   },
   {
     id: 'news-summarizer',
-    name: 'News Summarizer',
+    name: 'NewsChef',
     description: 'Daily news digest with AI-powered summaries',
     category: 'Content',
     icon: FileText,
@@ -143,30 +202,6 @@ export const templates: Template[] = [
     ]
   },
   {
-    id: 'data-sync',
-    name: 'Data Synchronizer',
-    description: 'Sync data between databases and spreadsheets',
-    category: 'Data Management',
-    icon: Database,
-    color: 'bg-gradient-to-br from-cyan-500 to-blue-600',
-    nodes: 7,
-    apiEndpoint: '/api/agents/sync/run',
-    inputs: [
-      {
-        id: 'source_db',
-        label: 'Source Database',
-        type: 'text',
-        required: true
-      },
-      {
-        id: 'dest_sheet',
-        label: 'Destination Sheet ID',
-        type: 'text',
-        required: true
-      }
-    ]
-  },
-  {
     id: 'social-monitor',
     name: 'Social Media Monitor',
     description: 'Track mentions and sentiment across platforms',
@@ -186,24 +221,49 @@ export const templates: Template[] = [
     ]
   },
   {
-    id: 'alert-system',
-    name: 'Alert System',
-    description: 'Monitor conditions and send instant notifications',
-    category: 'Monitoring',
-    icon: Zap,
-    color: 'bg-gradient-to-br from-amber-500 to-orange-600',
+    id: 'email-assistant',
+    name: 'Email Assistant',
+    description: 'Auto-categorize and respond to emails with AI-powered replies',
+    category: 'Communication',
+    icon: Mail,
+    color: 'bg-gradient-to-br from-blue-500 to-indigo-600',
     nodes: 5,
-    apiEndpoint: '/api/agents/alert/run',
+    apiEndpoint: '/api/agents/email-assistant/run',
     inputs: [
       {
-        id: 'condition',
-        label: 'Alert Condition',
-        type: 'textarea',
-        placeholder: 'If stock price > 150',
+        id: 'email_provider',
+        label: 'Email Provider',
+        type: 'select',
+        options: [
+          { label: 'Gmail', value: 'gmail' },
+          { label: 'Outlook', value: 'outlook' }
+        ],
         required: true
+      },
+      {
+        id: 'response_style',
+        label: 'Response Style',
+        type: 'select',
+        options: [
+          { label: 'Professional', value: 'professional' },
+          { label: 'Friendly', value: 'friendly' },
+          { label: 'Concise', value: 'concise' }
+        ],
+        defaultValue: 'professional'
       }
     ]
   },
+  {
+    id: 'grammar-x',
+    name: 'GrammarX',
+    description: 'Free improvised grammar and spell checker',
+    category: 'Writing',
+    icon: Edit3,
+    color: 'bg-gradient-to-br from-purple-600 to-indigo-600',
+    nodes: 5,
+    apiEndpoint: '', // Client-side logic usage
+    inputs: []
+  }
 ];
 
 export const getTemplateById = (id: string): Template | undefined => {
